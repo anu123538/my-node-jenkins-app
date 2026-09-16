@@ -9,20 +9,21 @@ pipeline {
         stage('1. Checkout Code') {
             steps {
                 echo 'Fetching code from GitHub...'
+                checkout scm
             }
         }
 
         stage('2. Install Dependencies') {
             steps {
                 echo 'Installing npm packages...'
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('3. Run Tests') {
             steps {
                 echo 'Running tests...'
-                sh 'npm test'
+                bat 'npm test'
             }
         }
 
